@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -20,6 +21,14 @@ const double dt = 0.01;
 
 int main() {
 
+	ofstream Data; //here I'm defining output streams, i.e. files
+	ios_base::openmode mode;
+	mode = std::ofstream::out; //Erase previous file (if present)
+	string filename = "Data.dat";
+	Data.open("Data/"+filename, mode);
+	Data.precision(15);
+
+
 	vector<double> X(L,1);
 	vector<double> P(L,0);
 
@@ -30,9 +39,9 @@ int main() {
 			X[i] = X[i] - dt * P[i];
 		}
 		for (auto elem : X){
-			cout << elem  << "\t";
+			Data << dt * n << "\t" << elem  << "\n";
 		}
-		cout << endl;
+		//cout << endl;
 	}
 
 
