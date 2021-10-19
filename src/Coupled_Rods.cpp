@@ -20,15 +20,19 @@ const double dt = 0.01;
 
 int main() {
 
-	vector<double> X(L,0);
+	vector<double> X(L,1);
 	vector<double> P(L,0);
 
 	const int N_steps = T/dt;
 	for (int n = 0; n < N_steps; ++n){
 		for (size_t i = 0; i < P.size(); ++i){
 			P[i] = P[i] + dt * X[i];
-			X[i] = X[i] + dt * P[i];
+			X[i] = X[i] - dt * P[i];
 		}
+		for (auto elem : X){
+			cout << elem  << "\t";
+		}
+		cout << endl;
 	}
 
 
