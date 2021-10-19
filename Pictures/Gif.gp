@@ -8,7 +8,7 @@ stats FILE_LEFT nooutput
 
 
 set xrange [*:*]
-set yrange [-10: 10]
+set yrange [0:4]
 set ylabel "Sx"
 set xlabel "x"
 percentile="P5 P10 P20 P25 P50 P75"
